@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#100c18">
+<title>Ера Перевтілення</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+:root{--bg:#100c18;--panel:#1c1528;--panel2:#251b35;--gold:#e6bd70;--purple:#a88aff;--text:#f5efff;--muted:#b8abc9;--red:#ed637b;--green:#7de0b0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#46305f 0,#1a1226 42%,var(--bg) 78%);color:var(--text);font:15px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh;padding:env(safe-area-inset-top) 14px calc(90px + env(safe-area-inset-bottom));}
+.wrap{max-width:520px;margin:0 auto}.top{display:flex;justify-content:space-between;align-items:center;padding:12px 2px 18px}.logo{font-weight:900;letter-spacing:.07em;font-size:16px;color:var(--gold)}.tag{font-size:11px;color:var(--muted);border:1px solid #514064;border-radius:99px;padding:5px 8px}
+.hero{position:relative;overflow:hidden;border:1px solid #59406f;border-radius:20px;padding:20px 18px 18px;background:linear-gradient(135deg,rgba(82,47,110,.95),rgba(28,20,43,.94) 58%,rgba(17,13,26,.98));box-shadow:0 16px 40px #0005}
+.hero:after{content:"";position:absolute;width:190px;height:190px;border:1px solid #c6a3ff44;border-radius:50%;right:-55px;top:-52px;box-shadow:0 0 0 18px #c6a3ff0c,0 0 0 38px #c6a3ff09}
+.eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);font-weight:800}.hero h1{font-size:27px;line-height:1.08;margin:8px 0 8px;max-width:280px}.hero p{margin:0;color:#d6c9e8;max-width:280px;font-size:13px}.hero .rune{position:absolute;right:16px;bottom:16px;font-size:72px;filter:drop-shadow(0 0 18px #b58aff);opacity:.9}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.stat,.card{background:linear-gradient(145deg,#261c36,#1a1425);border:1px solid #443253;border-radius:14px;padding:12px}.stat small{display:block;color:var(--muted);font-size:11px}.stat strong{display:block;margin-top:4px;font-size:16px}.section-head{display:flex;align-items:center;justify-content:space-between;margin:20px 2px 9px}.section-head h2{font-size:15px;margin:0}.section-head span{font-size:11px;color:var(--muted)}
+.progress{height:7px;background:#43364e;border-radius:99px;overflow:hidden;margin-top:8px}.progress i{display:block;height:100%;width:32%;background:linear-gradient(90deg,#9268e8,#d1a8ff);border-radius:99px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.action{min-height:86px;text-align:left;background:linear-gradient(145deg,#2b203d,#1c1528);color:var(--text);border:1px solid #4a365b;border-radius:15px;padding:13px;cursor:pointer;font:inherit}.action .ico{font-size:24px;display:block;margin-bottom:5px}.action b{font-size:13px;display:block}.action small{font-size:11px;color:var(--muted)}
+.primary{background:linear-gradient(100deg,#8a5ad4,#5c3b94);border:1px solid #c6a1ff;color:white;border-radius:13px;padding:13px 15px;font-weight:800;width:100%;font-size:14px;cursor:pointer;margin-top:12px}
+.log{font-size:13px;color:#e4d8f3;min-height:42px}.monster{display:flex;align-items:center;gap:12px}.monster-icon{width:62px;height:62px;border-radius:14px;background:radial-gradient(circle,#69446f,#21162f);display:grid;place-items:center;font-size:34px;border:1px solid #78528a}.monster-info{flex:1}.monster-info b{display:block}.monster-info small{color:var(--muted)}.bar{height:8px;background:#49303e;border-radius:99px;overflow:hidden;margin-top:7px}.bar i{height:100%;display:block;background:var(--red);width:100%}
+.nav{position:fixed;bottom:0;left:0;right:0;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:#120d1ded;backdrop-filter:blur(14px);border-top:1px solid #453354;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;z-index:5}.nav button{background:transparent;color:#aa9abf;border:0;border-radius:10px;padding:7px 1px;font:11px system-ui;cursor:pointer}.nav button span{display:block;font-size:19px;margin-bottom:2px}.nav button.active{background:#30213f;color:var(--gold)}
+.notice{font-size:11px;color:#9f91b1;text-align:center;margin:16px 6px 0}.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><div class="logo">✦ ЕРА ПЕРЕВТІЛЕННЯ</div><div class="tag">АЛЬФА · 0.1</div></header>
+  <section id="home">
+    <div class="hero"><div class="eyebrow">ТЕМНЕ ФЕНТЕЗІ · РОЗДІЛ I</div><h1>Пробудження<br>забутого світу</h1><p>Коли згасли старі зорі, почалася нова ера. Твоя легенда — ще не написана.</p><div class="rune">ᛟ</div></div>
+    <div class="stats">
+      <div class="stat"><small>⭐ РІВЕНЬ</small><strong id="level">1</strong></div>
+      <div class="stat"><small>🪙 ЗОЛОТО</small><strong id="gold">50</strong></div>
+      <div class="stat"><small>🏆 ПЕРЕМОГИ</small><strong id="wins">0</strong></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px"><b id="heroName">Мандрівник Тіней</b><span id="className" style="color:var(--gold)">Воїн</span></div>
+      <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:12px"><span>❤️ Здоров’я</span><b id="hpText">120 / 120</b></div><div class="progress"><i id="hpBar" style="width:100%;background:linear-gradient(90deg,#bd405f,#f17b91)"></i></div>
+      <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:12px"><span>🔮 Мана</span><b id="manaText">40 / 40</b></div><div class="progress"><i id="manaBar" style="width:100%;background:linear-gradient(90deg,#4775df,#a9bfff)"></i></div>
+      <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:12px"><span>✨ Досвід</span><b id="xpText">0 / 50</b></div><div class="progress"><i id="xpBar"></i></div>
+    </div>
+    <div class="section-head"><h2>Твоя пригода</h2><span>ОБЕРИ ДІЮ</span></div>
+    <div class="actions">
+      <button class="action" onclick="showTab('world')"><span class="ico">🌒</span><b>Світ</b><small>Досліджувати землі</small></button>
+      <button class="action" onclick="showTab('battle')"><span class="ico">⚔️</span><b>Битва</b><small>Здобути досвід і золото</small></button>
+      <button class="action" onclick="showTab('inventory')"><span class="ico">🎒</span><b>Інвентар</b><small>Твої речі та спорядження</small></button>
+      <button class="action" onclick="showTab('quests')"><span class="ico">📜</span><b>Завдання</b><small>Випробування героя</small></button>
+    </div>
+  </section>
+  <section id="world" class="hidden">
+    <div class="hero"><div class="eyebrow">КАРТА СВІТУ</div><h1>Землі за Завісою</h1><p>Давня магія шепоче з руїн. Кожен шлях приховує небезпеку.</p><div class="rune">☽</div></div>
+    <div class="section-head"><h2>Доступні локації</h2><span>РОЗДІЛ I</span></div>
+    <div class="card" style="margin-bottom:9px"><div class="monster"><div class="monster-icon">🌲</div><div class="monster-info"><b>Затінений ліс</b><small>Рівень 1+ · Гобліни, вовки</small></div><span>›</span></div><button class="primary" onclick="showTab('battle')">Увійти до лісу</button></div>
+    <div class="card" style="opacity:.65"><div class="monster"><div class="monster-icon">🏰</div><div class="monster-info"><b>Зруйнована цитадель</b><small>Рівень 5+ · Небезпечно</small></div><span>🔒</span></div></div>
+    <div class="card" style="opacity:.65;margin-top:9px"><div class="monster"><div class="monster-icon">🕳️</div><div class="monster-info"><b>Безодня перевтілення</b><small>Рівень 10+ · Бос</small></div><span>🔒</span></div></div>
+  </section>
+  <section id="battle" class="hidden">
+    <div class="hero"><div class="eyebrow">БОЙОВА ЗОНА</div><h1>Затінений ліс</h1><p>Вдихни холод нічного лісу. Щось рухається між деревами…</p><div class="rune">⚔</div></div>
+    <div class="section-head"><h2>Супротивник</h2><span id="enemyLevel">РІВЕНЬ 1</span></div>
+    <div class="card"><div class="monster"><div class="monster-icon" id="enemyIcon">👹</div><div class="monster-info"><b id="enemyName">Лісовий гоблін</b><small id="enemyHpText">Здоров’я: 38 / 38</small><div class="bar"><i id="enemyHpBar"></i></div></div></div></div>
+    <div class="section-head"><h2>Твої дії</h2><span>ХІД ГЕРОЯ</span></div>
+    <div class="actions"><button class="action" onclick="attack()"><span class="ico">🗡️</span><b>Атакувати</b><small>Звичайний удар</small></button><button class="action" onclick="skill()"><span class="ico">✨</span><b>Тіньовий удар</b><small>Витрачає 10 мани</small></button></div>
+    <button class="primary" onclick="newEnemy()">Знайти іншого монстра</button>
+    <div class="card" style="margin-top:12px"><b>📖 Хроніка битви</b><p class="log" id="battleLog">Ти чуєш хрускіт гілок. Гоблін помітив тебе!</p></div>
+  </section>
+  <section id="inventory" class="hidden">
+    <div class="hero"><div class="eyebrow">ТВОЇ РЕЧІ</div><h1>Інвентар</h1><p>Реліквії старого світу можуть змінити твою долю.</p><div class="rune">♜</div></div>
+    <div class="section-head"><h2>Спорядження</h2><span>2 СЛОТИ</span></div>
+    <div class="card" style="margin-bottom:9px">🗡️ <b>Іржавий меч</b><br><small style="color:var(--muted)">Звичайна зброя · +0 атаки</small></div>
+    <div class="card">🛡️ <b>Шкіряний жилет</b><br><small style="color:var(--muted)">Звичайна броня · +0 захисту</small></div>
+    <div class="section-head"><h2>Рюкзак</h2><span id="bagCount">1 ПРЕДМЕТ</span></div>
+    <div class="card" id="potionCard">🧪 <b>Зілля відновлення</b><br><small style="color:var(--muted)">Відновлює 35 здоров’я</small><button class="primary" onclick="usePotion()">Використати зілля</button></div>
+  </section>
+  <section id="quests" class="hidden">
+    <div class="hero"><div class="eyebrow">ШЛЯХ ГЕРОЯ</div><h1>Завдання</h1><p>Кожна легенда починається з малого випробування.</p><div class="rune">✧</div></div>
+    <div class="section-head"><h2>Щоденні випробування</h2><span>НАГОРОДИ</span></div>
+    <div class="card" style="margin-bottom:9px"><b>⚔️ Перша кров</b><p style="color:var(--muted);font-size:12px">Переможи одного монстра.</p><div class="progress"><i id="questBar"></i></div><small id="questText">Прогрес: 0 / 1</small><button class="primary" id="questButton" onclick="claimQuest()">Отримати 25 золота</button></div>
+    <div class="card"><b>⭐ Початок легенди</b><p style="color:var(--muted);font-size:12px">Досягни 3-го рівня.</p><small id="levelQuestText">Прогрес: рівень 1 / 3</small></div>
+  </section>
+  <p class="notice">АЛЬФА-ПРОТОТИП · прогрес зберігається лише в цьому браузері. Для справжньої онлайн-гри потрібен сервер.</p>
+</div>
+<nav class="nav">
+<button class="active" data-tab="home" onclick="showTab('home')"><span>⌂</span>Головна</button>
+<button data-tab="world" onclick="showTab('world')"><span>🌒</span>Світ</button>
+<button data-tab="battle" onclick="showTab('battle')"><span>⚔️</span>Битва</button>
+<button data-tab="inventory" onclick="showTab('inventory')"><span>🎒</span>Речі</button>
+</nav>
+<script>
+const tg = window.Telegram?.WebApp;
+if (tg) { tg.ready(); tg.expand(); try { tg.setHeaderColor('#100c18'); tg.setBackgroundColor('#100c18'); } catch(e) {} }
+const initial = {level:1,gold:50,wins:0,hp:120,maxHp:120,mana:40,maxMana:40,xp:0,attack:14,defense:5,potions:1,questClaimed:false};
+let s = {...initial};
+try { const old=JSON.parse(localStorage.getItem('eraSave')||'null'); if(old) s={...initial,...old}; } catch(e){}
+let enemy={name:'Лісовий гоблін',icon:'👹',hp:38,maxHp:38,attack:7,xp:18,gold:12};
+const enemies=[
+{name:'Лісовий гоблін',icon:'👹',hp:38,attack:7,xp:18,gold:12},
+{name:'Проклятий вовк',icon:'🐺',hp:48,attack:9,xp:24,gold:16},
+{name:'Загублений скелет',icon:'💀',hp:57,attack:10,xp:30,gold:21}
+];
+function save(){try{localStorage.setItem('eraSave',JSON.stringify(s))}catch(e){};render()}
+function render(){
+document.getElementById('level').textContent=s.level;document.getElementById('gold').textContent=s.gold;document.getElementById('wins').textContent=s.wins;
+document.getElementById('hpText').textContent=`${s.hp} / ${s.maxHp}`;document.getElementById('hpBar').style.width=`${100*s.hp/s.maxHp}%`;
+document.getElementById('manaText').textContent=`${s.mana} / ${s.maxMana}`;document.getElementById('manaBar').style.width=`${100*s.mana/s.maxMana}%`;
+document.getElementById('xpText').textContent=`${s.xp} / ${needXp()}`;document.getElementById('xpBar').style.width=`${100*s.xp/needXp()}%`;
+document.getElementById('enemyName').textContent=enemy.name;document.getElementById('enemyIcon').textContent=enemy.icon;document.getElementById('enemyHpText').textContent=`Здоров’я: ${enemy.hp} / ${enemy.maxHp}`;document.getElementById('enemyHpBar').style.width=`${Math.max(0,100*enemy.hp/enemy.maxHp)}%`;
+document.getElementById('questBar').style.width=`${Math.min(100,s.wins*100)}%`;document.getElementById('questText').textContent=`Прогрес: ${Math.min(1,s.wins)} / 1`;
+document.getElementById('questButton').disabled=s.wins<1||s.questClaimed;document.getElementById('questButton').textContent=s.questClaimed?'Нагороду отримано':'Отримати 25 золота';
+document.getElementById('levelQuestText').textContent=`Прогрес: рівень ${s.level} / 3`;
+document.getElementById('potionCard').innerHTML=`🧪 <b>Зілля відновлення</b><br><small style="color:var(--muted)">У запасі: ${s.potions} · відновлює 35 здоров’я</small><button class="primary" onclick="usePotion()" ${s.potions<1||s.hp===s.maxHp?'disabled':''}>Використати зілля</button>`;
+}
+function needXp(){return 50+(s.level-1)*35}
+function showTab(tab){document.querySelectorAll('main').forEach(x=>x.classList.add('hidden'));['home','world','battle','inventory','quests'].forEach(id=>document.getElementById(id).classList.toggle('hidden',id!==tab));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));if(tab==='quests'){};if(tab==='battle'&&enemy.hp<=0)newEnemy();window.scrollTo({top:0,behavior:'smooth'})}
+function setLog(t){document.getElementById('battleLog').textContent=t}
+function newEnemy(){const e=enemies[Math.floor(Math.random()*enemies.length)];enemy={...e,maxHp:e.hp,hp:e.hp+Math.max(0,s.level-1)*5,attack:e.attack+Math.max(0,s.level-1)*2};setLog(`На стежці з’явився ворог: ${enemy.name}. Приготуйся!`);render()}
+function attack(){if(s.hp<=0){setLog('Ти знесилений. Використай зілля або почекай відновлення.');return}let dmg=Math.max(1,s.attack+Math.floor(Math.random()*7)-2);if(Math.random()<.13)dmg*=2;enemy.hp=Math.max(0,enemy.hp-dmg);let msg=`Ти завдав ${dmg} шкоди.`;if(enemy.hp<=0){victory(msg);return}let hit=Math.max(1,enemy.attack+Math.floor(Math.random()*4)-s.defense);s.hp=Math.max(0,s.hp-hit);setLog(`${msg} ${enemy.name} відповідає: −${hit} здоров’я.`);save()}
+function skill(){if(s.mana<10){setLog('Недостатньо мани для тіньового удару.');return}if(s.hp<=0){setLog('Ти знесилений.');return}s.mana-=10;let dmg=Math.floor(s.attack*1.8+Math.random()*8);enemy.hp=Math.max(0,enemy.hp-dmg);if(enemy.hp<=0){victory(`Тіньовий удар завдав ${dmg} шкоди.`);return}let hit=Math.max(1,enemy.attack+Math.floor(Math.random()*4)-s.defense);s.hp=Math.max(0,s.hp-hit);setLog(`✨ Тіньовий удар: ${dmg} шкоди. Ворог завдав ${hit} шкоди у відповідь.`);save()}
+function victory(msg){s.wins++;let xp=enemy.xp,gold=enemy.gold+Math.floor(Math.random()*7);s.gold+=gold;s.xp+=xp;s.hp=Math.max(1,s.hp);let levelMsg='';while(s.xp>=needXp()){s.xp-=needXp();s.level++;s.maxHp+=12;s.maxMana+=5;s.attack+=2;s.defense+=1;s.hp=s.maxHp;s.mana=s.maxMana;levelMsg=` Рівень підвищено до ${s.level}!`}setLog(`${msg} Перемога! +${xp} досвіду, +${gold} золота.${levelMsg}`);const e=enemies[Math.floor(Math.random()*enemies.length)];enemy={...e,maxHp:e.hp,hp:e.hp+Math.max(0,s.level-1)*5,attack:e.attack+Math.max(0,s.level-1)*2};save()}
+function usePotion(){if(s.potions<1){alert('Зілля закінчилися.');return}if(s.hp===s.maxHp){alert('Здоров’я вже повне.');return}s.potions--;s.hp=Math.min(s.maxHp,s.hp+35);save();if(!document.getElementById('battle').classList.contains('hidden'))setLog('Ти використав зілля й відновив здоров’я.')}
+function claimQuest(){if(s.wins<1||s.questClaimed)return;s.gold+=25;s.questClaimed=true;save();alert('Отримано 25 золота!')}
+render();
+</script>
+</body>
+</html>
